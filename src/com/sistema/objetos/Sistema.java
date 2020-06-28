@@ -28,10 +28,10 @@ public class Sistema {
 		
 		generadores = new HashMap<String, GeneradorLaminas>();
 		generadores.put(Constantes.TIPO_PROBABILIDAD_BINOMIAL, new GeneradorBinomial());
-		generadores.put(Constantes.TIPO_PROBABILIDAD_BINOMIAL, new GeneradorGeometrica());
-		generadores.put(Constantes.TIPO_PROBABILIDAD_BINOMIAL, new GeneradorPoisson());
-		generadores.put(Constantes.TIPO_PROBABILIDAD_BINOMIAL, new GeneradorTabla());
-		generadores.put(Constantes.TIPO_PROBABILIDAD_BINOMIAL, new GeneradorUniforme());
+		generadores.put(Constantes.TIPO_PROBABILIDAD_GEOMETRICA, new GeneradorGeometrica());
+		generadores.put(Constantes.TIPO_PROBABILIDAD_POISSON, new GeneradorPoisson());
+		generadores.put(Constantes.TIPO_PROBABILIDAD_TABLA, new GeneradorTabla());
+		generadores.put(Constantes.TIPO_PROBABILIDAD_UNIFORME, new GeneradorUniforme());
 
 		String propiedad_n = Propiedades.obtenerPropiedad("n");
 		
