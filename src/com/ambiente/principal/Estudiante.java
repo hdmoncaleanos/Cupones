@@ -9,12 +9,14 @@ public class Estudiante {
 	private Album album;
 	private ArrayList<Integer> laminas_repetidas;
 	private Integer laminas_compradas;
+	private Integer laminas_cambiadas;
 	
 	public Estudiante(String id_estudiante, Integer cantidad_laminas) {
 		this.id_estudiante = id_estudiante;
 		this.album = new Album(cantidad_laminas);
 		this.laminas_repetidas = new ArrayList<Integer>();
 		this.laminas_compradas = 0;
+		this.laminas_cambiadas = 0;
 	}
 	
 	public String getId_estudiante() {
@@ -62,6 +64,8 @@ public class Estudiante {
 				estudiante2.getLaminas_repetidas().remove(lamina2);
 				this.getAlbum().agregarLamina(lamina2);
 				estudiante2.getAlbum().agregarLamina(lamina1);
+				estudiante2.incrementarLaminasCambiadas(1);
+				this.incrementarLaminasCambiadas(1);
 			}
 		
 		}
@@ -87,6 +91,17 @@ public class Estudiante {
 
 	public void setLaminas_compradas(Integer laminas_compradas) {
 		this.laminas_compradas = laminas_compradas;
+	}
+
+	public Integer getLaminas_cambiadas() {
+		return laminas_cambiadas;
+	}
+
+	public void setLaminas_cambiadas(Integer laminas_cambiadas) {
+		this.laminas_cambiadas = laminas_cambiadas;
+	}
+	public void incrementarLaminasCambiadas(Integer cambios){
+		this.laminas_cambiadas = this.laminas_cambiadas + cambios;
 	}
 	
 }

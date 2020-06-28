@@ -12,6 +12,7 @@ import org.graphstream.graph.implementations.SingleGraph;
 
 import com.simulador.utils.Utils;
 import com.sistema.interfaz.generadores.GeneradorLaminas;
+import com.sistema.principal.Propiedades;
 
 public class Ambiente {
 	
@@ -46,7 +47,7 @@ public class Ambiente {
 	    int nodes = amistades.getNodeCount();
 		int edgesn = amistades.getEdgeCount();
 		System.out.println("n: " + nodes + ", M: " + edgesn + " n/M: " + (float) edgesn / (float) nodes );
-		amistades.display();
+//		amistades.display();
 	}
 	
 	private void siguientePaso(){
@@ -70,8 +71,10 @@ public class Ambiente {
 		Set<String> ids_estudiantes = estudiantes.keySet();
 		for (String id_estudiante : ids_estudiantes) {
 			Estudiante estudiante = estudiantes.get(id_estudiante);
-			Integer id_lamina = generador.obtenerLamina();
-			estudiante.agregarLaminaComprada(id_lamina);
+			if(!estudiante.tieneAlbumLleno()){
+				Integer id_lamina = generador.obtenerLamina();
+				estudiante.agregarLaminaComprada(id_lamina);
+			}
 		}
 	}
 	
@@ -79,6 +82,7 @@ public class Ambiente {
 		for(int i = 0; i<cantidad_pasos; i++){
 			siguientePaso();
 		}
+		Utils.println(estudiantes);
 	}
 
 	public Map<String, Estudiante> getEstudiantes() {

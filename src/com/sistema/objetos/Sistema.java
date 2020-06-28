@@ -17,9 +17,11 @@ public class Sistema {
 	private Integer n;
 	private String distribucion;
 	private int cantidad_ambientes;
+	private int cantidad_pasos;
 	private Observador observador;
 	private Map<String, GeneradorLaminas> generadores;
-	
+	private Integer cantidad_estudiantes;
+
 	public void inicializar(){
 		
 		generadores = new HashMap<String, GeneradorLaminas>();
@@ -49,6 +51,18 @@ public class Sistema {
 		}
 		this.cantidad_ambientes = Integer.parseInt(propiedad_cantidad);
 
+		String propiedad_cantidad_pasos = Propiedades.obtenerPropiedad("cantidad_pasos");
+		if(propiedad_cantidad == null || !StringUtils.isNumeric(propiedad_cantidad)){
+			throw new RuntimeException("No se encuentra configurada correctamente la propiedad: cantidad_pasos");
+		}
+		this.cantidad_pasos = Integer.parseInt(propiedad_cantidad_pasos);
+
+		String propiedad_cantidad_estudiantes = Propiedades.obtenerPropiedad("cantidad_estudiantes");
+		if(propiedad_cantidad == null || !StringUtils.isNumeric(propiedad_cantidad)){
+			throw new RuntimeException("No se encuentra configurada correctamente la propiedad: cantidad_estudiantes");
+		}
+		this.cantidad_estudiantes = Integer.parseInt(propiedad_cantidad_estudiantes);
+
 	}
 	
 	public void simular(){
@@ -58,9 +72,8 @@ public class Sistema {
 			System.out.println("\n########## Inicio ejecucion para ambiente " + i + " ##########\n");
 			GeneradorLaminas generador = generadores.get(distribucion);
 			generador.setN(n);
-			Ambiente ambiente = new Ambiente(10, generador, n);
-			Integer cantidad_pasos = 100;
-			ambiente.ejecutar(cantidad_pasos );
+			Ambiente ambiente = new Ambiente(cantidad_estudiantes, generador, n);
+			ambiente.ejecutar( cantidad_pasos );
 			observador.getInfoAmbiente(ambiente);
 			System.out.println("\n########## Fin de ejecucion para ambiente " + i + " ##########\n");
 			
