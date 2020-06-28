@@ -79,6 +79,7 @@ public class Ambiente {
 		for(int i = 0; i<cantidad_pasos; i++){
 			siguientePaso();
 		}
+		Utils.println(estudiantes);
 	}
 
 	public Map<String, Estudiante> getEstudiantes() {

@@ -16,7 +16,7 @@ public class GeneradorUniforme implements GeneradorLaminas{
 	@Override
 	public Integer obtenerLamina() {
 		double randomDouble = Math.random();
-		Integer lamina = (int)  Math.floor(randomDouble * (n-1 ) );
+		Integer lamina = (int)  Math.floor(randomDouble * n );
 		return  lamina + 1 ;
 	}
 
