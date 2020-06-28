@@ -49,7 +49,7 @@ public class Ambiente {
 		amistades.display();
 	}
 	
-	public void siguientePaso(){
+	private void siguientePaso(){
 		comprarLaminas();
 		cambiarLaminas();
 		pasos++;
@@ -72,6 +72,12 @@ public class Ambiente {
 			Estudiante estudiante = estudiantes.get(id_estudiante);
 			Integer id_lamina = generador.obtenerLamina();
 			estudiante.agregarLaminaComprada(id_lamina);
+		}
+	}
+	
+	public void ejecutar(Integer cantidad_pasos){
+		for(int i = 0; i<cantidad_pasos; i++){
+			siguientePaso();
 		}
 	}
 }

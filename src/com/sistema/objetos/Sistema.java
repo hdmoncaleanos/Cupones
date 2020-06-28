@@ -60,7 +60,8 @@ public class Sistema {
 		for (int i = 1; i<= cantidad_ambientes; i++){
 			System.out.println("\n########## Inicio ejecucion para ambiente " + i + " ##########\n");
 			Ambiente ambiente = new Ambiente(10, generadores.get(distribucion), n);
-			
+			Integer cantidad_pasos = 100;
+			ambiente.ejecutar(cantidad_pasos );
 			System.out.println("\n########## Fin de ejecucion para ambiente " + i + " ##########\n");
 			
 		}
