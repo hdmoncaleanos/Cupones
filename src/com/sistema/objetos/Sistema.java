@@ -3,16 +3,12 @@ package com.sistema.objetos;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.sistema.generadores.*;
 import org.apache.commons.lang3.StringUtils;
 
 import com.ambiente.principal.Ambiente;
 import com.observador.principal.Observador;
 import com.sistema.constantes.Constantes;
-import com.sistema.generadores.GeneradorBinomial;
-import com.sistema.generadores.GeneradorGeometrica;
-import com.sistema.generadores.GeneradorPoisson;
-import com.sistema.generadores.GeneradorTabla;
-import com.sistema.generadores.GeneradorUniforme;
 import com.sistema.interfaz.generadores.GeneradorLaminas;
 import com.sistema.principal.Propiedades;
 
@@ -34,7 +30,7 @@ public class Sistema {
 		generadores.put(Constantes.TIPO_PROBABILIDAD_UNIFORME, new GeneradorUniforme());
 
 		String propiedad_n = Propiedades.obtenerPropiedad("n");
-		
+
 		if(propiedad_n == null || !StringUtils.isNumeric(propiedad_n)){
 			throw new RuntimeException("No se encuentra configurada correctamente la propiedad: n");
 		}
@@ -51,7 +47,15 @@ public class Sistema {
 			throw new RuntimeException("No se encuentra configurada correctamente la propiedad: propiedad_cantidad");
 		}
 		this.cantidad_ambientes = Integer.parseInt(propiedad_cantidad);
-	
+
+		switch (distribucion){
+			case (Constantes.TIPO_PROBABILIDAD_NORMAL):
+				GeneradorNormal gen = GeneradorNormal.getInstance();
+				gen.setN(this.n);
+				generadores.put(Constantes.TIPO_PROBABILIDAD_NORMAL, gen);
+				break;
+		}
+
 	}
 	
 	public void simular(){
