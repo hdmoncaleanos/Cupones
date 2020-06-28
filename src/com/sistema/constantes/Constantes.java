@@ -7,6 +7,7 @@ public class Constantes {
 	public static final String TIPO_PROBABILIDAD_GEOMETRICA = "geometrica";
 	public static final String TIPO_PROBABILIDAD_BINOMIAL = "binomial";
 	public static final String TIPO_PROBABILIDAD_UNIFORME = "uniforme";
+	public static final String TIPO_PROBABILIDAD_NORMAL = "uniforme";
 	
 	public static final String SOLIDO = "\u2588";
 	

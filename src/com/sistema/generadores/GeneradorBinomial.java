@@ -1,5 +1,7 @@
 package com.sistema.generadores;
 
+import org.apache.commons.math3.distribution.BinomialDistribution;
+
 import com.sistema.interfaz.generadores.GeneradorLaminas;
 
 public class GeneradorBinomial implements GeneradorLaminas{
@@ -15,7 +17,7 @@ public class GeneradorBinomial implements GeneradorLaminas{
 	
 	@Override
 	public Integer obtenerLamina() {
-		// TODO Auto-generated method stub
+		BinomialDistribution distribucion = new BinomialDistribution(100, 0.1);
 		return null;
 	}
 

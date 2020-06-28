@@ -34,6 +34,7 @@ public class Sistema {
 		generadores.put(Constantes.TIPO_PROBABILIDAD_BINOMIAL, new GeneradorUniforme());
 
 		String propiedad_n = Propiedades.obtenerPropiedad("n");
+		
 		if(propiedad_n == null || !StringUtils.isNumeric(propiedad_n)){
 			throw new RuntimeException("No se encuentra configurada correctamente la propiedad: n");
 		}
@@ -58,8 +59,7 @@ public class Sistema {
 		
 		for (int i = 1; i< cantidad_ambientes; i++){
 			System.out.println("\n########## Inicio ejecucion para ambiente " + i + " ##########\n");
-			Ambiente ambiente = new Ambiente();
-		
+			Ambiente ambiente = new Ambiente(cantidad_ambientes, generadores.get(distribucion), n);
 			
 			System.out.println("\n########## Fin de ejecucion para ambiente " + i + " ##########\n");
 			
