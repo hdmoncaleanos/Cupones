@@ -2,21 +2,20 @@ package com.sistema.principal;
 
 import java.io.IOException;
 
-import com.sistema.objetos.Simulacion;
+import com.sistema.objetos.Sistema;
 
 public class Main {
 	
 	public static void main(String[] args) throws IOException {
 		
 		Propiedades.cargarPropiedades();
-
-		Simulacion s = new Simulacion();
+		Sistema sistema = new Sistema();
 		
-		s.inicializar();
+		sistema.inicializar();
 
 		long inicio = System.currentTimeMillis();
 		System.out.println("Iniciando simulacion");
-		s.simular();
+		sistema.simular();
          
         long fin = System.currentTimeMillis();
          

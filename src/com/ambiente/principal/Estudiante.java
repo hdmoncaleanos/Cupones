@@ -8,10 +8,12 @@ public class Estudiante {
 	private Album album;
 	private ArrayList<Integer> laminas_repetidas;
 	
-	public Estudiante() {
-		super();
-		// TODO Auto-generated constructor stub
+	public Estudiante(String id_estudiante, Integer cantidad_laminas) {
+		this.id_estudiante = id_estudiante;
+		this.album = new Album(cantidad_laminas);
+		this.laminas_repetidas = new ArrayList<Integer>();
 	}
+	
 	public String getId_estudiante() {
 		return id_estudiante;
 	}
