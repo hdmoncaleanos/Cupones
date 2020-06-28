@@ -18,12 +18,11 @@ public class Album {
 	}	
 	
 	public boolean tieneLamina(Integer id_lamina){
-		System.out.println(id_lamina);
-		return laminas[id_lamina];
+		return laminas[id_lamina-1];
 	}
 	
 	public void agregarLamina(Integer id_lamina){
-		laminas[id_lamina] = true;
+		laminas[id_lamina-1] = true;
 	}
 
 	public boolean estaLleno() {
