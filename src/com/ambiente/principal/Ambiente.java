@@ -38,8 +38,7 @@ public class Ambiente {
 	    
 	    Iterable<? extends Edge> edges = amistades.getEachEdge();
 	    for (Edge edge : edges) {
-			System.out.println(edge.getNode0().getId() );
-			System.out.println(edge.getNode1().getId() );
+			System.out.println("Arista : " + edge.getNode0().getId() + " a " + edge.getNode1().getId());
 		}
 	    int nodes = amistades.getNodeCount();
 		int edgesn = amistades.getEdgeCount();

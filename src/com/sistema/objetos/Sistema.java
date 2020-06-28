@@ -57,7 +57,7 @@ public class Sistema {
 	public void simular(){
 		observador = new Observador();
 		
-		for (int i = 1; i< cantidad_ambientes; i++){
+		for (int i = 1; i<= cantidad_ambientes; i++){
 			System.out.println("\n########## Inicio ejecucion para ambiente " + i + " ##########\n");
 			Ambiente ambiente = new Ambiente(cantidad_ambientes, generadores.get(distribucion), n);
 			
