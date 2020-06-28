@@ -21,4 +21,10 @@ public class GeneradorGeometrica implements GeneradorLaminas{
 		return null;
 	}
 
+	@Override
+	public void setN(Integer n) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

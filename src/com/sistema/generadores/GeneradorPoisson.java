@@ -19,4 +19,10 @@ public class GeneradorPoisson implements GeneradorLaminas{
 		return null;
 	}
 
+	@Override
+	public void setN(Integer n) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
