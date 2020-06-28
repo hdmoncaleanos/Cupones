@@ -27,7 +27,7 @@ public class Ambiente {
 		
 		estudiantes = new HashMap<String, Estudiante>();
 		
-		for(int i = 1; i <= cantidad_estudiantes; i++){
+		for(int i = 0; i < cantidad_estudiantes; i++){
 			estudiantes.put(i + "", new Estudiante(i + "", cantidad_laminas));
 		}
 		Utils.println(estudiantes);
