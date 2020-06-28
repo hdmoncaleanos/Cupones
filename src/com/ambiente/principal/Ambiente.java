@@ -8,18 +8,19 @@ import org.graphstream.algorithm.generator.Generator;
 import org.graphstream.algorithm.generator.RandomGenerator;
 import org.graphstream.graph.Edge;
 import org.graphstream.graph.Graph;
-import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
 
 import com.simulador.utils.Utils;
 import com.sistema.interfaz.generadores.GeneradorLaminas;
 
 public class Ambiente {
+	
 	private Integer cantidad_estudiantes;
 	private Map<String, Estudiante> estudiantes;
 	private GeneradorLaminas generador;
 	private Graph amistades;
 	private Integer pasos = 0;
+	
 	public Ambiente(Integer cantidad_estudiantes, GeneradorLaminas generador, Integer cantidad_laminas){
 		this.generador = generador;
 		this.cantidad_estudiantes = cantidad_estudiantes;
@@ -61,16 +62,7 @@ public class Ambiente {
 	    	String id_estudiante2 = edge.getNode1().getId();
 	    	Estudiante estudiante1 = estudiantes.get(id_estudiante1);
 	    	Estudiante estudiante2 = estudiantes.get(id_estudiante2);
-			intercambiarLaminas(estudiante1, estudiante2);
-		}
-	}
-
-	private void intercambiarLaminas(Estudiante estudiante1, Estudiante estudiante2) {
-		
-		for (Integer id_lamina : estudiante1.getLaminas_repetidas()) {
-			if(!estudiante2.getAlbum().tieneLamina(id_lamina)){
-				
-			}
+	    	estudiante1.intercambiarLaminas(estudiante2);
 		}
 	}
 
@@ -79,11 +71,7 @@ public class Ambiente {
 		for (String id_estudiante : ids_estudiantes) {
 			Estudiante estudiante = estudiantes.get(id_estudiante);
 			Integer id_lamina = generador.obtenerLamina();
-			if( estudiante.getAlbum().tieneLamina(id_lamina) ){
-				estudiante.getLaminas_repetidas().add(id_lamina);
-			} else {
-				estudiante.getAlbum().agregarLamina(id_lamina);
-			}
+			estudiante.agregarLaminaComprada(id_lamina);
 		}
 	}
 }
