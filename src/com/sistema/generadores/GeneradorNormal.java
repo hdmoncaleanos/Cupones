@@ -24,7 +24,7 @@ public class GeneradorNormal implements GeneradorLaminas{
 		if(this.n != null){
 			Integer laminilla = (int) Math.floor(prob * this.n);
 			System.out.println(laminilla);
-			return laminilla;
+			return laminilla + 1;
 		}
 		return null;
 	}
