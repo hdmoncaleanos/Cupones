@@ -80,4 +80,29 @@ public class Ambiente {
 			siguientePaso();
 		}
 	}
+
+	public Map<String, Estudiante> getEstudiantes() {
+		return estudiantes;
+	}
+
+	public void setEstudiantes(Map<String, Estudiante> estudiantes) {
+		this.estudiantes = estudiantes;
+	}
+
+	public Integer getCantidad_estudiantes() {
+		return cantidad_estudiantes;
+	}
+
+	public void setCantidad_estudiantes(Integer cantidad_estudiantes) {
+		this.cantidad_estudiantes = cantidad_estudiantes;
+	}
+
+	public Graph getAmistades() {
+		return amistades;
+	}
+
+	public void setAmistades(Graph amistades) {
+		this.amistades = amistades;
+	}
+	
 }

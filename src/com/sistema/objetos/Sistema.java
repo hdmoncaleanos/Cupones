@@ -35,13 +35,13 @@ public class Sistema {
 			throw new RuntimeException("No se encuentra configurada correctamente la propiedad: n");
 		}
 		this.n = Integer.parseInt(propiedad_n);
-		
 		String propiedad_distribucion = Propiedades.obtenerPropiedad("distribucion");
+
 		if(propiedad_distribucion == null ){
 			throw new RuntimeException("No se encuentra configurada correctamente la propiedad: distribucion");
 		}
 		this.distribucion = propiedad_distribucion;
-		
+
 		String propiedad_cantidad = Propiedades.obtenerPropiedad("cantidad_ambientes");
 		if(propiedad_cantidad == null || !StringUtils.isNumeric(propiedad_cantidad)){
 			throw new RuntimeException("No se encuentra configurada correctamente la propiedad: propiedad_cantidad");
@@ -59,7 +59,7 @@ public class Sistema {
 	}
 	
 	public void simular(){
-		observador = new Observador();
+		observador = Observador.getInstance();
 		
 		for (int i = 1; i<= cantidad_ambientes; i++){
 			System.out.println("\n########## Inicio ejecucion para ambiente " + i + " ##########\n");
@@ -68,8 +68,12 @@ public class Sistema {
 			Ambiente ambiente = new Ambiente(10, generador, n);
 			Integer cantidad_pasos = 100;
 			ambiente.ejecutar(cantidad_pasos );
+			observador.getInfoAmbiente(ambiente);
 			System.out.println("\n########## Fin de ejecucion para ambiente " + i + " ##########\n");
 			
 		}
+		
+		observador.generarAnalisis();
+		
 	}
 }
