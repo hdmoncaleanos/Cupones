@@ -18,9 +18,9 @@ public class GeneradorNormal implements GeneradorLaminas{
 	@Override
 	public Integer obtenerLamina() {
 		NormalDistribution distribucion = new NormalDistribution();
-		double prob = (distribucion.sample() + distribucion.getSupportUpperBound()) / (distribucion.getSupportUpperBound() - distribucion.getSupportLowerBound());
+		double prob = (distribucion.sample() + (distribucion.getStandardDeviation() * 3)) / (distribucion.getStandardDeviation() * 6);
 
-		if(n != null){
+		if(this.n != null){
 			Integer laminilla = (int) Math.floor(prob * this.n);
 			System.out.println(laminilla);
 			return laminilla;

@@ -28,6 +28,7 @@ public class Sistema {
 		generadores.put(Constantes.TIPO_PROBABILIDAD_POISSON, new GeneradorPoisson());
 		generadores.put(Constantes.TIPO_PROBABILIDAD_TABLA, new GeneradorTabla());
 		generadores.put(Constantes.TIPO_PROBABILIDAD_UNIFORME, new GeneradorUniforme());
+		generadores.put(Constantes.TIPO_PROBABILIDAD_NORMAL, GeneradorNormal.getInstance());
 
 		String propiedad_n = Propiedades.obtenerPropiedad("n");
 
@@ -47,14 +48,6 @@ public class Sistema {
 			throw new RuntimeException("No se encuentra configurada correctamente la propiedad: propiedad_cantidad");
 		}
 		this.cantidad_ambientes = Integer.parseInt(propiedad_cantidad);
-
-		switch (distribucion){
-			case (Constantes.TIPO_PROBABILIDAD_NORMAL):
-				GeneradorNormal gen = GeneradorNormal.getInstance();
-				gen.setN(this.n);
-				generadores.put(Constantes.TIPO_PROBABILIDAD_NORMAL, gen);
-				break;
-		}
 
 	}
 	
