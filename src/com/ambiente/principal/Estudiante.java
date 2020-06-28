@@ -9,6 +9,7 @@ public class Estudiante {
 	private Album album;
 	private ArrayList<Integer> laminas_repetidas;
 	private Integer laminas_compradas;
+	private Integer laminas_cambiadas;
 	
 	public Estudiante(String id_estudiante, Integer cantidad_laminas) {
 		this.id_estudiante = id_estudiante;
@@ -87,6 +88,14 @@ public class Estudiante {
 
 	public void setLaminas_compradas(Integer laminas_compradas) {
 		this.laminas_compradas = laminas_compradas;
+	}
+
+	public Integer getLaminas_cambiadas() {
+		return laminas_cambiadas;
+	}
+
+	public void setLaminas_cambiadas(Integer laminas_cambiadas) {
+		this.laminas_cambiadas = laminas_cambiadas;
 	}
 	
 }

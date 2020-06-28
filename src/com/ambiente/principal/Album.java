@@ -18,7 +18,7 @@ public class Album {
 	}	
 	
 	public boolean tieneLamina(Integer id_lamina){
-		System.out.println(id_lamina);
+//		System.out.println(id_lamina);
 		return laminas[id_lamina-1];
 	}
 	

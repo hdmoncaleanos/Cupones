@@ -12,6 +12,7 @@ import org.graphstream.graph.implementations.SingleGraph;
 
 import com.simulador.utils.Utils;
 import com.sistema.interfaz.generadores.GeneradorLaminas;
+import com.sistema.principal.Propiedades;
 
 public class Ambiente {
 	
@@ -46,7 +47,7 @@ public class Ambiente {
 	    int nodes = amistades.getNodeCount();
 		int edgesn = amistades.getEdgeCount();
 		System.out.println("n: " + nodes + ", M: " + edgesn + " n/M: " + (float) edgesn / (float) nodes );
-		amistades.display();
+//		amistades.display();
 	}
 	
 	private void siguientePaso(){
