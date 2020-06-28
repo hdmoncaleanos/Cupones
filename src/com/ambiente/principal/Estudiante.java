@@ -55,8 +55,8 @@ public class Estudiante {
 		if(!posible_cambio1.isEmpty() && !posible_cambio2.isEmpty() ){
 			int cambios = Math.max(posible_cambio1.size(), posible_cambio2.size());
 			for(int i = 1; i<=cambios; i++){
-				Integer lamina1 = posible_cambio1.get(i-1);
-				Integer lamina2 = posible_cambio2.get(i-1);
+				Integer lamina1 = posible_cambio1.get(i);
+				Integer lamina2 = posible_cambio2.get(i);
 				this.getLaminas_repetidas().remove(lamina1);
 				estudiante2.getLaminas_repetidas().remove(lamina2);
 				this.getAlbum().agregarLamina(lamina2);
