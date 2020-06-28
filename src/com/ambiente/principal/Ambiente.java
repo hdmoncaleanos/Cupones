@@ -70,8 +70,10 @@ public class Ambiente {
 		Set<String> ids_estudiantes = estudiantes.keySet();
 		for (String id_estudiante : ids_estudiantes) {
 			Estudiante estudiante = estudiantes.get(id_estudiante);
-			Integer id_lamina = generador.obtenerLamina();
-			estudiante.agregarLaminaComprada(id_lamina);
+			if(!estudiante.tieneAlbumLleno()){
+				Integer id_lamina = generador.obtenerLamina();
+				estudiante.agregarLaminaComprada(id_lamina);
+			}
 		}
 	}
 	

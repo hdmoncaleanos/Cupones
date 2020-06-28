@@ -5,16 +5,7 @@ import org.apache.commons.math3.distribution.BinomialDistribution;
 import com.sistema.interfaz.generadores.GeneradorLaminas;
 
 public class GeneradorBinomial implements GeneradorLaminas{
-	
-	GeneradorBinomial instance;
-	
-	public GeneradorBinomial getInstance(){
-		if(instance == null){
-			instance = new GeneradorBinomial();
-		}
-		return instance;
-	}
-	
+	private Integer n;
 	@Override
 	public Integer obtenerLamina() {
 		BinomialDistribution distribucion = new BinomialDistribution(100, 0.1);
@@ -23,7 +14,7 @@ public class GeneradorBinomial implements GeneradorLaminas{
 
 	@Override
 	public void setN(Integer n) {
-		
+		this.n = n;
 	}
 
 }
