@@ -6,7 +6,7 @@ public class Album {
 	private boolean[] laminas;
 
 	public Album(Integer cantidad_laminas) {
-		laminas = new boolean[cantidad_laminas + 1];
+		laminas = new boolean[cantidad_laminas];
 	}
 
 	public boolean[] getLaminas() {
@@ -27,7 +27,7 @@ public class Album {
 	}
 
 	public boolean estaLleno() {
-		for(int i = 1; i < laminas.length; i++){
+		for(int i = 0; i < laminas.length; i++){
 			if(!laminas[i]){
 				return false;
 			}

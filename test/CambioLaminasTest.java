@@ -13,6 +13,9 @@ public class CambioLaminasTest {
 		estudiante1.agregarLaminaComprada(5);
 		estudiante1.agregarLaminaComprada(1);
 		estudiante1.agregarLaminaComprada(2);
+		estudiante1.agregarLaminaComprada(8);
+		estudiante1.agregarLaminaComprada(9);
+		estudiante1.agregarLaminaComprada(10);
 		
 		estudiante2.agregarLaminaComprada(6);
 		estudiante2.agregarLaminaComprada(7);
@@ -29,5 +32,6 @@ public class CambioLaminasTest {
 
 		Utils.println(estudiante1);
 		Utils.println(estudiante2);
+		Utils.println(estudiante1.tieneAlbumLleno());
 	}
 }

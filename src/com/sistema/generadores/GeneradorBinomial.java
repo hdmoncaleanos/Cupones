@@ -23,7 +23,6 @@ public class GeneradorBinomial implements GeneradorLaminas{
 
 	@Override
 	public void setN(Integer n) {
-		// TODO Auto-generated method stub
 		
 	}
 
