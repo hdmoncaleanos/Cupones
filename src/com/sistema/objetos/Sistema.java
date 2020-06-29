@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.sistema.generadores.*;
-
 import org.apache.commons.lang3.StringUtils;
 
 import com.ambiente.principal.Ambiente;
@@ -22,7 +21,7 @@ public class Sistema {
 	private Observador observador;
 	private Map<String, GeneradorLaminas> generadores;
 	private Integer cantidad_estudiantes;
-	
+
 	public void inicializar(){
 		
 		generadores = new HashMap<String, GeneradorLaminas>();
@@ -31,7 +30,8 @@ public class Sistema {
 		generadores.put(Constantes.TIPO_PROBABILIDAD_POISSON, new GeneradorPoisson());
 		generadores.put(Constantes.TIPO_PROBABILIDAD_TABLA, new GeneradorTabla());
 		generadores.put(Constantes.TIPO_PROBABILIDAD_UNIFORME, new GeneradorUniforme());
-		generadores.put(Constantes.TIPO_PROBABILIDAD_NORMAL, new GeneradorNormal());
+		generadores.put(Constantes.TIPO_PROBABILIDAD_NORMAL, GeneradorNormal.getInstance());
+
 		String propiedad_n = Propiedades.obtenerPropiedad("n");
 
 		if(propiedad_n == null || !StringUtils.isNumeric(propiedad_n)){
