@@ -28,7 +28,7 @@ public class Sistema {
 		generadores.put(Constantes.TIPO_PROBABILIDAD_BINOMIAL, new GeneradorBinomial());
 		generadores.put(Constantes.TIPO_PROBABILIDAD_GEOMETRICA, new GeneradorGeometrica());
 		generadores.put(Constantes.TIPO_PROBABILIDAD_POISSON, new GeneradorPoisson());
-		generadores.put(Constantes.TIPO_PROBABILIDAD_TABLA, new GeneradorTabla());
+		generadores.put(Constantes.TIPO_PROBABILIDAD_TABLA, GeneradorTabla.getInstance());
 		generadores.put(Constantes.TIPO_PROBABILIDAD_UNIFORME, new GeneradorUniforme());
 		generadores.put(Constantes.TIPO_PROBABILIDAD_NORMAL, GeneradorNormal.getInstance());
 
