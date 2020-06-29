@@ -1,28 +1,22 @@
 package com.sistema.generadores;
 
+import org.apache.commons.math3.distribution.PoissonDistribution;
+
 import com.sistema.interfaz.generadores.GeneradorLaminas;
 
 public class GeneradorPoisson implements GeneradorLaminas{
 	
-	GeneradorPoisson instance;
-	
-	public GeneradorPoisson getInstance(){
-		if(instance == null){
-			instance = new GeneradorPoisson();
-		}
-		return instance;
-	}
+	private Integer n;
 	
 	@Override
 	public Integer obtenerLamina() {
-		// TODO Auto-generated method stub
-		return null;
+		PoissonDistribution distribucion = new PoissonDistribution(1);
+		return distribucion.sample();
 	}
 
 	@Override
 	public void setN(Integer n) {
-		// TODO Auto-generated method stub
-		
+		this.n = n;
 	}
 
 }

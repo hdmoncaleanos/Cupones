@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.commons.lang3.StringUtils;
 import org.graphstream.algorithm.generator.Generator;
 import org.graphstream.algorithm.generator.RandomGenerator;
 import org.graphstream.graph.Edge;
@@ -31,7 +32,6 @@ public class Ambiente {
 		for(int i = 0; i < cantidad_estudiantes; i++){
 			estudiantes.put(i + "", new Estudiante(i + "", cantidad_laminas));
 		}
-		Utils.println(estudiantes);
 		amistades = new SingleGraph("Amistades");
 	    Generator gen = new RandomGenerator(2);
 	    gen.addSink(amistades);
@@ -40,13 +40,9 @@ public class Ambiente {
 	        gen.nextEvents();
 	    gen.end();
 	    
-	    Iterable<? extends Edge> edges = amistades.getEachEdge();
-	    for (Edge edge : edges) {
-			System.out.println("Amistad : " + edge.getNode0().getId() + " a " + edge.getNode1().getId());
-		}
 	    int nodes = amistades.getNodeCount();
 		int edgesn = amistades.getEdgeCount();
-		System.out.println("n: " + nodes + ", M: " + edgesn + " n/M: " + (float) edgesn / (float) nodes );
+		System.out.println("Ambiente n: " + nodes + ", M: " + edgesn + " n/M: " + (float) edgesn / (float) nodes );
 //		amistades.display();
 	}
 	
