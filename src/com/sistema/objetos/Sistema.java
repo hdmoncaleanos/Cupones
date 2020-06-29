@@ -72,7 +72,7 @@ public class Sistema {
 			System.out.println("\n########## Inicio ejecucion para ambiente " + i + " ##########\n");
 			GeneradorLaminas generador = generadores.get(distribucion);
 			generador.setN(n);
-			Ambiente ambiente = new Ambiente(cantidad_estudiantes, generador, n);
+			Ambiente ambiente = new Ambiente(i, cantidad_estudiantes, generador, n);
 			ambiente.ejecutar( cantidad_pasos );
 			observador.getInfoAmbiente(ambiente);
 			System.out.println("\n########## Fin de ejecucion para ambiente " + i + " ##########\n");

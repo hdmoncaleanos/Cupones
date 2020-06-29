@@ -21,7 +21,7 @@ public class Ambiente {
 	private Graph amistades;
 	private Integer pasos = 0;
 	
-	public Ambiente(Integer cantidad_estudiantes, GeneradorLaminas generador, Integer cantidad_laminas){
+	public Ambiente(Integer id_ambiente, Integer cantidad_estudiantes, GeneradorLaminas generador, Integer cantidad_laminas){
 		this.generador = generador;
 		this.cantidad_estudiantes = cantidad_estudiantes;
 		
@@ -34,6 +34,7 @@ public class Ambiente {
 	    Generator gen = new RandomGenerator(2);
 	    gen.addSink(amistades);
 	    gen.begin();
+	    
 	    for(int i=0; i<cantidad_estudiantes - 3; i++)
 	        gen.nextEvents();
 	    gen.end();
@@ -41,7 +42,9 @@ public class Ambiente {
 	    int nodes = amistades.getNodeCount();
 		int edgesn = amistades.getEdgeCount();
 		System.out.println("Ambiente n: " + nodes + ", M: " + edgesn + " n/M: " + (float) edgesn / (float) nodes );
-//		amistades.display();
+		if(id_ambiente.equals(1)){
+			amistades.display();
+		}
 	}
 	
 	private void siguientePaso(){
