@@ -53,20 +53,24 @@ public class Observacion {
 	}
 
 	public Integer getPromedioLaminasCompradasPorEstudiante() {
-		return totalLaminasCompradasAmbiente / cantidadEstudiantes ;
+		return cantidadEstudiantes > 0 ?
+				totalLaminasCompradasAmbiente / cantidadEstudiantes : 0 ;
 	}
 
 
 	public Integer getPromedioLaminasCompradasParaAlbumesLlenos() {
-		return laminasCompradasAlbumesLlenos / laminasCompradasAlbumesLlenos;
+		return laminasCompradasAlbumesLlenos > 0 ?
+				laminasCompradasAlbumesLlenos / laminasCompradasAlbumesLlenos : 0;
 	}
 	
 	public Integer getPromedioLaminasIntercambiadasAmbiente() {
-		return cantidadIntercambiosAmbiente / cantidadEstudiantes;
+		return cantidadEstudiantes > 0 ?
+				cantidadIntercambiosAmbiente / cantidadEstudiantes : 0;
 	}
 	
 	public Integer getPromedioLaminasIntercambiadasAlbumesLlenos() {
-		return cantidadIntercambiosAlbumesLlenos / albumesLlenosAmbiente;
+		return albumesLlenosAmbiente > 0 ?
+				cantidadIntercambiosAlbumesLlenos / albumesLlenosAmbiente : 0;
 	}
 
 	public Integer getCantidadAmistades() {
