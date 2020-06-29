@@ -6,7 +6,9 @@ public class Observacion {
 			albumesLlenosAmbiente,
 			totalLaminasCompradasAmbiente,
 			laminasCompradasAlbumesLlenos,
-			cantidadAmistades;
+			cantidadAmistades,
+			cantidadIntercambiosAlbumesLlenos,
+			cantidadIntercambiosAmbiente;
 	
 	public Observacion() {
 		cantidadEstudiantes = 0;
@@ -14,6 +16,8 @@ public class Observacion {
 		totalLaminasCompradasAmbiente = 0;
 		laminasCompradasAlbumesLlenos = 0;
 		cantidadAmistades = 0;
+		cantidadIntercambiosAlbumesLlenos = 0;
+		cantidadIntercambiosAmbiente = 0;
 	}
 	
 	public Integer getCantidadEstudiantes() {
@@ -49,12 +53,24 @@ public class Observacion {
 	}
 
 	public Integer getPromedioLaminasCompradasPorEstudiante() {
-		return totalLaminasCompradasAmbiente / cantidadEstudiantes ;
+		return cantidadEstudiantes > 0 ?
+				totalLaminasCompradasAmbiente / cantidadEstudiantes : 0 ;
 	}
 
 
 	public Integer getPromedioLaminasCompradasParaAlbumesLlenos() {
-		return laminasCompradasAlbumesLlenos / laminasCompradasAlbumesLlenos;
+		return laminasCompradasAlbumesLlenos > 0 ?
+				laminasCompradasAlbumesLlenos / laminasCompradasAlbumesLlenos : 0;
+	}
+	
+	public Integer getPromedioLaminasIntercambiadasAmbiente() {
+		return cantidadEstudiantes > 0 ?
+				cantidadIntercambiosAmbiente / cantidadEstudiantes : 0;
+	}
+	
+	public Integer getPromedioLaminasIntercambiadasAlbumesLlenos() {
+		return albumesLlenosAmbiente > 0 ?
+				cantidadIntercambiosAlbumesLlenos / albumesLlenosAmbiente : 0;
 	}
 
 	public Integer getCantidadAmistades() {
@@ -65,13 +81,33 @@ public class Observacion {
 		this.cantidadAmistades = cantidadAmistades;
 	}
 
+	public String getCSVLine() {
+		return "" + cantidadEstudiantes + ","
+						+ cantidadAmistades + ","
+						+ albumesLlenosAmbiente + ","
+						+ totalLaminasCompradasAmbiente+","
+						+ laminasCompradasAlbumesLlenos + ","
+						+ getPromedioLaminasCompradasPorEstudiante() + ","
+						+ getPromedioLaminasCompradasParaAlbumesLlenos() + ","
+						+ getPromedioLaminasIntercambiadasAmbiente() + ","
+						+ getPromedioLaminasCompradasParaAlbumesLlenos() + "\n";
+	}
+
+	public Integer getCantidadIntercambios() {
+		return cantidadIntercambiosAlbumesLlenos;
+	}
+
+	public void setCantidadIntercambios(Integer cantidadIntercambios) {
+		this.cantidadIntercambiosAlbumesLlenos = cantidadIntercambios;
+	}
+
 	@Override
 	public String toString() {
 		return "Observacion [cantidadEstudiantes=" + cantidadEstudiantes + ", albumesLlenosAmbiente="
 				+ albumesLlenosAmbiente + ", totalLaminasCompradasAmbiente=" + totalLaminasCompradasAmbiente
 				+ ", laminasCompradasAlbumesLlenos=" + laminasCompradasAlbumesLlenos + ", cantidadAmistades="
-				+ cantidadAmistades + "]";
+				+ cantidadAmistades + ", cantidadIntercambiosAlbumesLlenos=" + cantidadIntercambiosAlbumesLlenos
+				+ ", cantidadIntercambiosAmbiente=" + cantidadIntercambiosAmbiente + "]";
 	}
-	
 	
 }

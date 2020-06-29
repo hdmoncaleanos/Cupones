@@ -57,7 +57,7 @@ public class Estudiante {
 		if(!posible_cambio1.isEmpty() && !posible_cambio2.isEmpty() ){
 			int cambios = Math.min(posible_cambio1.size(), posible_cambio2.size());
 			for(int i = 0; i<cambios; i++){
-				System.out.println("Comparar " + i + " " + posible_cambio2.size());
+//				System.out.println("Comparar " + i + " " + posible_cambio2.size());
 				Integer lamina1 = posible_cambio1.get(i);
 				Integer lamina2 = posible_cambio2.get(i);
 				this.getLaminas_repetidas().remove(lamina1);
