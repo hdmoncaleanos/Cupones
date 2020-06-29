@@ -60,7 +60,7 @@ public class Observacion {
 
 	public Integer getPromedioLaminasCompradasParaAlbumesLlenos() {
 		return laminasCompradasAlbumesLlenos > 0 ?
-				laminasCompradasAlbumesLlenos / laminasCompradasAlbumesLlenos : 0;
+				laminasCompradasAlbumesLlenos / albumesLlenosAmbiente : 0;
 	}
 	
 	public Integer getPromedioLaminasIntercambiadasAmbiente() {
