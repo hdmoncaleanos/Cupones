@@ -31,12 +31,16 @@ public class GeneradorTabla implements GeneradorLaminas{
 
 		try {
 
-			double indexAleatorio = Math.random();
+			do {
 
-			for (Double d: this.probs) {
-				if(d.compareTo(indexAleatorio) >= 0)
-					return this.probs.indexOf(d);
-			}
+				double indexAleatorio = Math.random();
+
+				for (Double d: this.probs) {
+					if(d.compareTo(indexAleatorio) >= 0)
+						return this.probs.indexOf(d) + 1;
+				}
+
+			}while(true);
 		}
 		 catch (Exception e){
 			e.printStackTrace();
@@ -83,6 +87,9 @@ public class GeneradorTabla implements GeneradorLaminas{
 
 			for (String s: lineas) {
 				Double prob = Double.parseDouble(s.split(" ")[1]);
+				if(prob > 1 || prob < 0) {
+					throw new RuntimeException("Probabilidad de " + s + " invalida");
+				}
 				localProbs.add(prob);
 			}
 
