@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.lang3.StringUtils;
 import org.graphstream.algorithm.generator.Generator;
 import org.graphstream.algorithm.generator.RandomGenerator;
 import org.graphstream.graph.Edge;
@@ -13,7 +12,6 @@ import org.graphstream.graph.implementations.SingleGraph;
 
 import com.simulador.utils.Utils;
 import com.sistema.interfaz.generadores.GeneradorLaminas;
-import com.sistema.principal.Propiedades;
 
 public class Ambiente {
 	
@@ -78,7 +76,7 @@ public class Ambiente {
 		for(int i = 0; i<cantidad_pasos; i++){
 			siguientePaso();
 		}
-		Utils.println(estudiantes);
+//		Utils.println(estudiantes);
 	}
 
 	public Map<String, Estudiante> getEstudiantes() {
